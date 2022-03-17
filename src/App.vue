@@ -1,5 +1,49 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <!-- Top bar -->
+    <nav class="navbar mb-4 navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <span class="navbar-brand mb-0 h1" v-text="sitename"></span>
+        <div v-if="!showCart">
+          <button
+            v-on:click="resetDatabase()"
+            class="btn btn-outline-light btn-sm shadow-none"
+          >
+            <i class="fas fa-sync"></i> Reset Database
+          </button>
+          <button
+            :disabled="isCartDisabled"
+            v-on:click="switchToCart()"
+            class="btn btn-outline-light btn-sm shadow-none"
+          >
+            <i class="fas fa-shopping-cart"></i> Shopping cart ({{
+              cartItemsCount
+            }})
+          </button>
+        </div>
+        <div v-else>
+          <button
+            v-on:click="switchToMain()"
+            class="btn btn-outline-light btn-sm shadow-none"
+          >
+            <i class="fas fa-angle-left"></i> Go back
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main page with the list of lessons -->
+    <div v-if="!showCart" id="mainPage">
+      <!-- Lessons component -->
+      <lessons-list :lessons="lessons"></lessons-list>
+    </div>
+
+    <!-- Shopping cart page -->
+    <div v-else id="cartPage">
+      <!-- Checkout component -->
+      <checkout-form :cartItems="cartItems"></checkout-form>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -16,7 +60,7 @@ export default {
       // shopping cart properties
       cartItems: [],
       showCart: false,
-    }
+    };
   },
   methods: {
     // loads all lessons
