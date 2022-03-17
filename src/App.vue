@@ -35,13 +35,13 @@
     <!-- Main page with the list of lessons -->
     <div v-if="!showCart" id="mainPage">
       <!-- Lessons component -->
-      <lessons-list :lessons="lessons" :apiUrl="apiUrl"></lessons-list>
+      <lessons-list @addToCart="addToCart" :lessons="lessons" :apiUrl="apiUrl"></lessons-list>
     </div>
 
     <!-- Shopping cart page -->
     <div v-else id="cartPage">
       <!-- Checkout component -->
-      <checkout-form :cartItems="cartItems"></checkout-form>
+      <checkout-form @removeFromCart="removeFromCart" :cartItems="cartItems"></checkout-form>
     </div>
   </div>
 </template>
@@ -140,26 +140,6 @@ export default {
 
     cartItemsCount() {
       return this.cartItems.length;
-    },
-
-    // checks whether the checkout button should be enabled
-    checkoutEnabled() {
-      // check if any of the fields is empty
-      if (this.checkoutName === "" || this.checkoutPhone === "") {
-        return false;
-      }
-
-      // check if checkoutName is only letters
-      if (/[^a-z]/i.test(this.checkoutName)) {
-        return false;
-      }
-
-      // check if checkoutPhone is only number
-      if (!/^\d+$/.test(this.checkoutPhone)) {
-        return false;
-      }
-
-      return true;
     },
   },
 
