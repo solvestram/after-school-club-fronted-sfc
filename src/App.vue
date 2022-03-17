@@ -55,6 +55,9 @@ export default {
   components: { LessonsList, CheckoutForm },
   data() {
     return {
+      sitename: "After School Club",
+      apiUrl: "https://cst3145-after-school-club.herokuapp.com",
+      
       lessons: [],
 
       // shopping cart properties
