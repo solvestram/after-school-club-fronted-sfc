@@ -56,7 +56,7 @@
     <!-- Listing lessons -->
     <div id="lesson-cards" class="container mb-4">
       <div class="row row-cols-4 g-4">
-        <div class="col" v-for="lesson in sortedLessons" :key="lesson.id">
+        <div class="col" v-for="lesson in lessons" :key="lesson.id">
           <div class="card text-dark bg-light">
             <figure>
               <img
@@ -110,61 +110,6 @@ export default {
       // search
       searchInput: "",
     };
-  },
-  computed: {
-    // for sorting items on the main page
-    sortedLessons() {
-      let sorted;
-
-      // sorting
-      if (this.sortBy === "subject") {
-        sorted = this.lessons.sort((a, b) => {
-          if (a.subject > b.subject) return 1;
-          if (a.subject < b.subject) return -1;
-          return 0;
-        });
-      } else if (this.sortBy === "location") {
-        sorted = this.lessons.sort((a, b) => {
-          if (a.location > b.location) return 1;
-          if (a.location < b.location) return -1;
-          return 0;
-        });
-      } else if (this.sortBy === "price") {
-        sorted = this.lessons.sort((a, b) => {
-          if (a.price > b.price) return 1;
-          if (a.price < b.price) return -1;
-          return 0;
-        });
-      } else if (this.sortBy === "space") {
-        sorted = this.lessons.sort((a, b) => {
-          if (a.space > b.space) return 1;
-          if (a.space < b.space) return -1;
-          return 0;
-        });
-      }
-
-      // reversing for descending order
-      if (this.sortOrder === "descending") {
-        sorted = sorted.reverse();
-      }
-
-      if (this.searchInput === "") {
-        return sorted;
-      } else {
-        // search
-        let sortedWithSearch = sorted.filter((lesson) => {
-          let includesSubject = lesson.subject
-            .toLowerCase()
-            .includes(this.searchInput.toLowerCase());
-          let includesLocation = lesson.location
-            .toLowerCase()
-            .includes(this.searchInput.toLowerCase());
-          return includesSubject || includesLocation;
-        });
-
-        return sortedWithSearch;
-      }
-    },
   },
 };
 </script>
