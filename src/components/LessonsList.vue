@@ -58,6 +58,11 @@ export default {
       searchInput: "",
     };
   },
+  methods: {
+    addToCart (lesson) {
+      this.$emit('addToCart', lesson)
+    }
+  }
 };
 </script>
 
