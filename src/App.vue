@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <!-- Top bar -->
     <nav class="navbar mb-4 navbar-dark bg-dark sticky-top">
       <div class="container">
@@ -35,13 +35,21 @@
     <!-- Main page with the list of lessons -->
     <div v-if="!showCart" id="mainPage">
       <!-- Lessons component -->
-      <lessons-list @addToCart="addToCart" :lessons="lessons" :apiUrl="apiUrl"></lessons-list>
+      <lessons-list
+        @addToCart="addToCart"
+        :lessons="lessons"
+        :apiUrl="apiUrl"
+      ></lessons-list>
     </div>
 
     <!-- Shopping cart page -->
     <div v-else id="cartPage">
       <!-- Checkout component -->
-      <checkout-form @removeFromCart="removeFromCart" :cartItems="cartItems" :apiUrl="apiUrl"></checkout-form>
+      <checkout-form
+        @removeFromCart="removeFromCart"
+        :cartItems="cartItems"
+        :apiUrl="apiUrl"
+      ></checkout-form>
     </div>
   </div>
 </template>

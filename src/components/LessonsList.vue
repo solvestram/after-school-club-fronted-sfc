@@ -45,7 +45,7 @@
 <script>
 export default {
   name: "LessonsList",
-  props: ['lessons', 'apiUrl'],
+  props: ["lessons", "apiUrl"],
   data() {
     return {
       // sorting properties
@@ -59,10 +59,10 @@ export default {
     };
   },
   methods: {
-    addToCart (lesson) {
-      this.$emit('addToCart', lesson)
-    }
-  }
+    addToCart(lesson) {
+      this.$emit("addToCart", lesson);
+    },
+  },
 };
 </script>
 

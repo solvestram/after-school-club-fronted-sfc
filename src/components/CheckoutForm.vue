@@ -89,7 +89,7 @@
 <script>
 export default {
   name: "CheckoutForm",
-  props: ['cartItems', 'apiUrl'],
+  props: ["cartItems", "apiUrl"],
   data() {
     return {
       checkoutName: "",
@@ -151,8 +151,8 @@ export default {
     },
 
     removeFromCart(lesson) {
-      this.$emit('removeFromCart', lesson)
-    }
+      this.$emit("removeFromCart", lesson);
+    },
   },
   computed: {
     // checks whether the checkout button should be enabled
@@ -174,7 +174,7 @@ export default {
 
       return true;
     },
-  }
+  },
 };
 </script>
 
