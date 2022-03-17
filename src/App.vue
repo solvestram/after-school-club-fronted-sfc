@@ -74,7 +74,7 @@ export default {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ reset: true }),
-      }).then((response) => {
+      }).then(() => {
         console.log("The database was reset");
 
         // Reload lessons data
