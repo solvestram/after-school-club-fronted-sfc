@@ -153,6 +153,27 @@ export default {
       this.$emit('removeFromCart', lesson)
     }
   },
+  computed: {
+    // checks whether the checkout button should be enabled
+    checkoutEnabled() {
+      // check if any of the fields is empty
+      if (this.checkoutName === "" || this.checkoutPhone === "") {
+        return false;
+      }
+
+      // check if checkoutName is only letters
+      if (/[^a-z]/i.test(this.checkoutName)) {
+        return false;
+      }
+
+      // check if checkoutPhone is only number
+      if (!/^\d+$/.test(this.checkoutPhone)) {
+        return false;
+      }
+
+      return true;
+    },
+  }
 };
 </script>
 
