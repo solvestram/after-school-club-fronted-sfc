@@ -89,6 +89,7 @@
 <script>
 export default {
   name: "CheckoutForm",
+  props: ['cartItems', 'apiUrl'],
   data() {
     return {
       checkoutName: "",
