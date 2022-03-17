@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Top bar -->
+        <nav class="navbar mb-4 navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <span class="navbar-brand mb-0 h1" v-text="sitename"></span>
+                <div v-if="!showCart">
+                    <button v-on:click="resetDatabase()" class="btn btn-outline-light btn-sm shadow-none">
+                        <i class="fas fa-sync"></i> Reset Database
+                    </button>
+                    <button :disabled="isCartDisabled" v-on:click="switchToCart()" class="btn btn-outline-light btn-sm shadow-none">
+                        <i class="fas fa-shopping-cart"></i> Shopping cart ({{ cartItemsCount }})
+                    </button>
+                </div>
+                <div v-else>
+                    <button v-on:click="switchToMain()" class="btn btn-outline-light btn-sm shadow-none"><i
+                            class="fas fa-angle-left"></i>
+                        Go back</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main page with the list of lessons -->
+        <div v-if="!showCart" id='mainPage'>
+            <!-- Lessons component -->
+            <lessons-list :lessons="lessons"></lessons-list>
+        </div>
+
+        <!-- Shopping cart page -->
+        <div v-else id="cartPage">
+            <!-- Checkout component -->
+            <checkout-form :cartItems="cartItems"></checkout-form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
