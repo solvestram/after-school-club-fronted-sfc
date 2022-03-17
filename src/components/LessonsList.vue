@@ -1,58 +1,5 @@
 <template>
   <div>
-    <!-- Search and Sorting options -->
-    <div class="container mb-4">
-      <div class="form-row mb-3">
-        <input
-          id="search"
-          class="col-auto form-control w-25"
-          type="search"
-          placeholder="Search"
-          v-model="searchInput"
-        />
-      </div>
-      <div class="row">
-        <div class="col-auto">
-          <span><strong>Sort by: </strong></span>
-          <div
-            class="form-check form-check-inline"
-            v-for="option in sortOptions" :key="option.id"
-          >
-            <input
-              class="form-check-input"
-              type="radio"
-              name="sortBy"
-              v-bind:id="option"
-              v-bind:value="option"
-              v-model="sortBy"
-            />
-            <label class="form-check-label" v-bind:for="option">{{
-              option
-            }}</label>
-          </div>
-        </div>
-        <div class="col-auto">
-          <span><strong>Sort order: </strong></span>
-          <div
-            class="form-check form-check-inline"
-            v-for="option in orderOptions" :key="option.id"
-          >
-            <input
-              class="form-check-input"
-              type="radio"
-              name="sortOrder"
-              v-bind:id="option"
-              v-bind:value="option"
-              v-model="sortOrder"
-            />
-            <label class="form-check-label" v-bind:for="option">{{
-              option
-            }}</label>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Listing lessons -->
     <div id="lesson-cards" class="container mb-4">
       <div class="row row-cols-4 g-4">
