@@ -41,7 +41,7 @@
     <!-- Shopping cart page -->
     <div v-else id="cartPage">
       <!-- Checkout component -->
-      <checkout-form @removeFromCart="removeFromCart" :cartItems="cartItems"></checkout-form>
+      <checkout-form @removeFromCart="removeFromCart" :cartItems="cartItems" :apiUrl="apiUrl"></checkout-form>
     </div>
   </div>
 </template>
