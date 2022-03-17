@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import lesson from './components/LessonsList.vue';
-import checkout from './components/CheckoutForm.vue';
+import LessonsList from './components/LessonsList.vue';
+import CheckoutForm from './components/CheckoutForm.vue';
 
 export default {
   name: "App",
-  components: { lesson, checkout },
+  components: { LessonsList, CheckoutForm },
 };
 </script>
 
