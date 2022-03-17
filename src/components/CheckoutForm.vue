@@ -148,6 +148,10 @@ export default {
       // Show confirmation message
       this.orderConfirmed = true;
     },
+
+    removeFromCart(lesson) {
+      this.$emit('removeFromCart', lesson)
+    }
   },
 };
 </script>
