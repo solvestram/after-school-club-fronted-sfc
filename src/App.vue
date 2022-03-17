@@ -35,7 +35,7 @@
     <!-- Main page with the list of lessons -->
     <div v-if="!showCart" id="mainPage">
       <!-- Lessons component -->
-      <lessons-list :lessons="lessons"></lessons-list>
+      <lessons-list :lessons="lessons" :apiUrl="apiUrl"></lessons-list>
     </div>
 
     <!-- Shopping cart page -->
@@ -57,7 +57,7 @@ export default {
     return {
       sitename: "After School Club",
       apiUrl: "https://cst3145-after-school-club.herokuapp.com",
-      
+
       lessons: [],
 
       // shopping cart properties

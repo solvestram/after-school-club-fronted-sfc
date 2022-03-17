@@ -45,7 +45,7 @@
 <script>
 export default {
   name: "LessonsList",
-  props: ['lessons'],
+  props: ['lessons', 'apiUrl'],
   data() {
     return {
       // sorting properties
